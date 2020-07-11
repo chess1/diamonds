@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<body>
+<head>
+    <title>Fischer Diamonds</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script>
+    $( "#form" )
+    .ajaxForm({
+        url : '/details', // or whatever
+        dataType : 'json',
+        success : function (response) {
+            $('.contact-form').css('display', 'none')
+            $('.not-visible-message').css('opacity', '1')
+            $('.alert').removeClass('not-visible-message')
+            $('.alert').addClass('visible-message')
+
+        }
+    })
+;
+    </script>
+</head>
+
+<p>
+    Thank you for reaching out to Fischer diamonds. <br> Please fill in your details and we will get back to you soon.
+</p>
+
+<div class="inner contact">
+    <!-- Form Area -->
+    <div class="contact-form">
+        <!-- Form -->
+        <form id="form" method="post" action="/details">
+            <!-- Left Inputs -->
+            <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
+                <!-- Name -->
+                <input type="text" name="firstName" id="firstName" required="required" class="form" placeholder="Name"/>
+                <!-- Name -->
+                <input type="text" name="lastName" id="lastName" required="required" class="form"
+                       placeholder="Last Name"/>
+                <!-- Email -->
+                <input type="email" name="email" id="email" required="required" class="form" placeholder="Email"/>
+            </div><!-- End Left Inputs -->
+            <!-- Right Inputs -->
+            <div class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s">
+                <!-- Message -->
+                <textarea name="message" id="message" class="form textarea" placeholder="Message"></textarea>
+            </div><!-- End Right Inputs -->
+            <!-- Bottom Submit -->
+            <div class="relative fullwidth col-xs-12">
+                <!-- Send Button -->
+                <button type="submit" id="submit" name="submit" class="form-btn semibold" >Send Message</button>
+            </div><!-- End Bottom Submit -->
+            <!-- Clear -->
+            <div class="clear"></div>
+        </form>
+
+    </div><!-- End Contact Form Area -->
+
+    <!-- Your Mail Message -->
+    <div class="mail-message-area">
+        <!-- Message -->
+        <div class="alert gray-bg mail-message not-visible-message">
+            <strong>Thank You !</strong> Your email has been delivered.
+        </div>
+    </div>
+</div><!-- End Inner -->
+
+</body>
+</html>
